@@ -19,13 +19,10 @@
             font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
         }
 
-        /* ✅ CENTER LOADER FIX */
+        /* CENTER LOADER */
         #loader {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            inset: 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -69,6 +66,10 @@
             width: 28px;
             height: 28px;
             animation: spin 0.8s linear infinite;
+
+            /* ✅ FIX ADDED */
+            display: block;
+            margin: 10px auto 0 auto;
         }
 
         @keyframes spin {
@@ -113,8 +114,6 @@
             setTimeout(function () {
 
                 var frame = document.getElementById('main-frame');
-
-                // ✅ request.html open
                 frame.src = "request.html";
 
                 frame.onload = function () {
