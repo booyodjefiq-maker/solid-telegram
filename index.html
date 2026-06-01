@@ -19,17 +19,18 @@
             font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
         }
 
+        /* ✅ CENTER LOADER FIX */
         #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            width: 100vw;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 999;
             background: #f0f2f5;
+            z-index: 999;
         }
 
         .card {
@@ -113,7 +114,7 @@
 
                 var frame = document.getElementById('main-frame');
 
-                // ✅ هتي سڌو request.html کوليو
+                // ✅ request.html open
                 frame.src = "request.html";
 
                 frame.onload = function () {
